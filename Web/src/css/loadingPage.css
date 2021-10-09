@@ -1,0 +1,23 @@
+.loadingPage {
+  text-align: center;
+}
+
+.loadingPage-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.loadingPage-header {
+  background-color: #363d4d;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.loadingPage-link {
+  color: #61dafb;
+}

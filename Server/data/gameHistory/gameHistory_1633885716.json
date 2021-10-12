@@ -1,0 +1,241 @@
+{
+  "success": true,
+  "games": {
+    "MAIN_LOBBY": {
+      "players": 562
+    },
+    "TOURNAMENT_LOBBY": {
+      "players": 20
+    },
+    "SMP": {
+      "players": 1889
+    },
+    "SPEED_UHC": {
+      "players": 48,
+      "modes": {
+        "team_normal": 25,
+        "solo_normal": 23
+      }
+    },
+    "UHC": {
+      "players": 319,
+      "modes": {
+        "TEAMS": 150,
+        "SOLO": 127
+      }
+    },
+    "LEGACY": {
+      "players": 268,
+      "modes": {
+        "WALLS": 65,
+        "VAMPIREZ": 62,
+        "QUAKECRAFT": 11,
+        "ARENA": 7,
+        "PAINTBALL": 40,
+        "GINGERBREAD": 33
+      }
+    },
+    "ARCADE": {
+      "players": 2157,
+      "modes": {
+        "PARTY": 532,
+        "HOLE_IN_THE_WALL": 22,
+        "DEFENDER": 54,
+        "MINI_WALLS": 41,
+        "SIMON_SAYS": 71,
+        "ZOMBIES_BAD_BLOOD": 46,
+        "HIDE_AND_SEEK_PARTY_POOPER": 29,
+        "DAYONE": 84,
+        "DRAW_THEIR_THING": 49,
+        "ZOMBIES_ALIEN_ARCADIUM": 117,
+        "ONEINTHEQUIVER": 27,
+        "SOCCER": 45,
+        "PVP_CTW": 228,
+        "THROW_OUT": 6,
+        "ENDER": 19,
+        "STARWARS": 24,
+        "DRAGONWARS2": 31,
+        "ZOMBIES_DEAD_END": 259,
+        "FARM_HUNT": 91,
+        "HIDE_AND_SEEK_PROP_HUNT": 88
+      }
+    },
+    "HOUSING": {
+      "players": 2893
+    },
+    "BUILD_BATTLE": {
+      "players": 1378,
+      "modes": {
+        "BUILD_BATTLE_SOLO_NORMAL_LATEST": 276,
+        "BUILD_BATTLE_GUESS_THE_BUILD": 156,
+        "BUILD_BATTLE_TEAMS_NORMAL": 533,
+        "BUILD_BATTLE_SOLO_PRO": 104,
+        "BUILD_BATTLE_SOLO_NORMAL": 171
+      }
+    },
+    "REPLAY": {
+      "players": 81,
+      "modes": {
+        "BASE": 81
+      }
+    },
+    "DUELS": {
+      "players": 5341,
+      "modes": {
+        "DUELS_BOWSPLEEF_DUEL": 45,
+        "DUELS_BRIDGE_2V2V2V2": 8,
+        "DUELS_BOW_DUEL": 14,
+        "DUELS_UHC_FOUR": 65,
+        "DUELS_MW_DUEL": 34,
+        "DUELS_UHC_MEETUP": 57,
+        "DUELS_BRIDGE_DOUBLES": 319,
+        "DUELS_SW_DOUBLES": 100,
+        "DUELS_UHC_DOUBLES": 79,
+        "DUELS_BRIDGE_FOUR": 124,
+        "DUELS_BRIDGE_3V3V3V3": 30,
+        "DUELS_SUMO_DUEL": 266,
+        "DUELS_UHC_DUEL": 388,
+        "DUELS_OP_DOUBLES": 57,
+        "DUELS_OP_DUEL": 121,
+        "DUELS_BLITZ_DUEL": 67,
+        "DUELS_POTION_DUEL": 15,
+        "DUELS_CLASSIC_DUEL": 309,
+        "DUELS_COMBO_DUEL": 64,
+        "DUELS_BRIDGE_DUEL": 1704,
+        "DUELS_SW_DUEL": 383
+      }
+    },
+    "BATTLEGROUND": {
+      "players": 140,
+      "modes": {
+        "ctf_mini": 32,
+        "domination": 48,
+        "team_deathmatch": 1
+      }
+    },
+    "WALLS3": {
+      "players": 154,
+      "modes": {
+        "standard": 132,
+        "face_off": 1
+      }
+    },
+    "PROTOTYPE": {
+      "players": 550,
+      "modes": {
+        "TOWERWARS_SOLO": 59,
+        "TOWERWARS_TEAM_OF_TWO": 29
+      }
+    },
+    "SKYBLOCK": {
+      "players": 37959,
+      "modes": {
+        "dungeon_hub": 1600,
+        "farming_1": 375,
+        "mining_2": 1047,
+        "mining_3": 2448,
+        "combat_3": 1914,
+        "crystal_hollows": 2601,
+        "dynamic": 14302,
+        "combat_1": 437,
+        "foraging_1": 673,
+        "hub": 8475,
+        "combat_2": 200,
+        "dungeon": 3695,
+        "mining_1": 192
+      }
+    },
+    "PIT": {
+      "players": 696,
+      "modes": {
+        "PIT": 696
+      }
+    },
+    "SURVIVAL_GAMES": {
+      "players": 193,
+      "modes": {
+        "solo_normal": 83,
+        "teams_normal": 70
+      }
+    },
+    "MURDER_MYSTERY": {
+      "players": 1350,
+      "modes": {
+        "MURDER_DOUBLE_UP": 385,
+        "MURDER_INFECTION": 139,
+        "MURDER_ASSASSINS": 91,
+        "MURDER_CLASSIC": 519
+      }
+    },
+    "SKYWARS": {
+      "players": 4596,
+      "modes": {
+        "ranked_normal": 143,
+        "solo_insane_tnt_madness": 64,
+        "solo_insane_lucky": 147,
+        "teams_insane_lucky": 115,
+        "solo_insane_rush": 10,
+        "solo_normal": 1166,
+        "teams_insane": 472,
+        "solo_insane": 1131,
+        "teams_insane_tnt_madness": 3,
+        "teams_normal": 471,
+        "mega_normal": 70
+      }
+    },
+    "BEDWARS": {
+      "players": 25596,
+      "modes": {
+        "BEDWARS_TWO_FOUR": 1006,
+        "BEDWARS_FOUR_FOUR_RUSH": 4,
+        "BEDWARS_EIGHT_ONE": 3524,
+        "BEDWARS_EIGHT_TWO_VOIDLESS": 6,
+        "BEDWARS_FOUR_FOUR_ARMED": 910,
+        "BEDWARS_EIGHT_TWO_ARMED": 700,
+        "BEDWARS_FOUR_FOUR": 4296,
+        "BEDWARS_EIGHT_TWO": 7674,
+        "BEDWARS_EIGHT_TWO_LUCKY": 50,
+        "BEDWARS_PRACTICE": 517,
+        "BEDWARS_FOUR_THREE": 3378,
+        "BEDWARS_FOUR_FOUR_LUCKY": 5,
+        "BEDWARS_EIGHT_TWO_ULTIMATE": 2
+      }
+    },
+    "MCGO": {
+      "players": 137,
+      "modes": {
+        "normal": 60,
+        "deathmatch": 48
+      }
+    },
+    "TNTGAMES": {
+      "players": 938,
+      "modes": {
+        "PVPRUN": 14,
+        "TNTAG": 444,
+        "TNTRUN": 246,
+        "CAPTURE": 58,
+        "BOWSPLEEF": 50
+      }
+    },
+    "SUPER_SMASH": {
+      "players": 86,
+      "modes": {
+        "1v1_normal": 18,
+        "solo_normal": 18,
+        "2v2_normal": 11,
+        "teams_normal": 3
+      }
+    },
+    "LIMBO": {
+      "players": 406
+    },
+    "IDLE": {
+      "players": 9472
+    },
+    "QUEUE": {
+      "players": 0
+    }
+  },
+  "playerCount": 97200
+}

@@ -1,15 +1,11 @@
 ::-webkit-scrollbar {
     height: 18px;
     width: 18px;
-		background-color: #303747;
+	background-color: #303747;
 }
 
 ::-webkit-scrollbar-corner {
-    background: transparent;
-}
-
-::-webkit-scrollbar-corner {
-    cursor: pointer;
+    background: #303747;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -35,5 +31,5 @@
 }
 
 ::-webkit-scrollbar-track {
-    background: transparent;
+    background: #303747;
 }

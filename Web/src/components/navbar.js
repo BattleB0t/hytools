@@ -9,12 +9,6 @@ class NavBar extends React.Component {
 			<div>
 				<Link to="/home">Home</Link>
 			</div>
-			{
-				this.props.app ? <h2>
-					{this.props.app}
-				</h2>
-					: null
-			}
 		</div>;
 	}
 }

@@ -2,6 +2,114 @@ h1 {
 	color: white;
 }
 
-.page > h1 {
+.generalStatsPage {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.generalStatsSelectUser > input {
+	width: 20em;
+	height: 2em;
+	border: none;
+	outline: none;
+	background-color: #00000050;
+	color: white;
+	font-size: 1.5em;
+	font-weight: bold;
 	text-align: center;
+	margin-bottom: 1em;
+	margin-left: 1em;
+	margin-right: 1em;
+	border-radius: 0.5em;
+	-webkit-border-radius: 0.5em;
+	-moz-border-radius: 0.5em;
+	-ms-border-radius: 0.5em;
+	-o-border-radius: 0.5em;
+}
+
+.generalStatsSelectUser > * {
+	margin: 0;
+	padding: 1em;
+}
+
+.generalStatsSelectUser > div {
+	margin-bottom: 1em;
+	border-radius: 0.5em;
+	padding: 0 2em;
+	color: white;
+	cursor: pointer;
+}
+
+.generalStatsSelectUser > h1 {
+	margin: 0;
+}
+
+.generalStatsSelectUser {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	background-color: #00000050;
+	margin: 0;
+	padding: 0;
+	border-radius: 0.5em;
+	-webkit-border-radius: 0.5em;
+	-moz-border-radius: 0.5em;
+	-ms-border-radius: 0.5em;
+	-o-border-radius: 0.5em;
+}
+
+.generalStatsPage > div:first-child {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.generalStatsPage > .title > h1 {
+	text-align: center;
+	margin-left: 1em;
+}
+
+.submitBtn {
+	background-color: #00000050;
+}
+
+.cards {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	gap: 0.5em;
+	margin: 1em;
+	margin-bottom: 0;
+	padding-bottom: 1em;
+}
+
+.cards > * {
+	background-color: #00000050;
+	height: 7.5em;
+	padding: 1em;
+	border-radius: 1em;
+	-webkit-border-radius: 1em;
+	-moz-border-radius: 1em;
+	-ms-border-radius: 1em;
+	-o-border-radius: 1em;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.stat {
+	color: white;
+}
+
+.value {
+	color: #bbbbbb;
+}
+
+.reload {
+	color: white;
+	font-size: 3em;
+	cursor: pointer;
 }

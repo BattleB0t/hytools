@@ -1,0 +1,22 @@
+[
+	{
+		"id": 1,
+		"name": "Coffee",
+		"description": "Coffee is a brewed drink prepared from roasted coffee beans, which are the seeds of berries from the Coffea plant. Coffee is brewed by roasted coffee beans, which are the seeds of berries from the Coffea plant. Coffee is brewed by roasted coffee beans, which are the seeds of berries from the Coffea plant."
+	},
+	{
+		"id": 2,
+		"name": "Tea",
+		"description": "Tea is a brewed drink prepared from leaves of the tea plant, which are the seeds of the Camellia sinensis plant. Tea is brewed by boiling hot water over a cup or a kettle. Tea is brewed by boiling hot water over a cup or a kettle."
+	},
+	{
+		"id": 3,
+		"name": "Juice",
+		"description": "Juice is the liquid extract of fruit and vegetable juice, and is typically concentrated. Juice is the liquid extract of fruit and vegetable juice, and is typically concentrated."
+	},
+	{
+		"id": 4,
+		"name": "Milk",
+		"description": "Milk is a white liquid produced by the mammary glands of mammals. It is the primary source of nutrition for infant mammals, and is consumed in large quantities as milk substitute for other diets. Milk is the primary source of nutrition for infant mammals, and is consumed in large quantities as milk substitute for other diets."
+	}
+]

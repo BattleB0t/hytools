@@ -27,13 +27,13 @@ class MarketPlace extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-			loaded: false,
-			dataBase: [],
+      loaded: false,
+      dataBase: [],
     };
   }
   render() {
     if (!this.state.loaded) {
-      fetch(`${server}/marketplace/get`)
+      fetch(`${server()}/marketplace/get`)
         .then((res) => res.json())
         .then((res) => {
           this.setState({
@@ -49,27 +49,30 @@ class MarketPlace extends React.Component {
           enabledApps: JSON.parse(localStorage.getItem("enabledApps")),
         });
       }
-		}
-		return <div> {
-			this.state.loaded ? (
-        <div className="page">
-          <NavBar app="MarketPlace" />
-          <Container>
-            {this.state.dataBase.map((item, index) => {
-              return (
-                <MarketplaceAppCard
-                  key={item + index}
-                  name={item.name}
-                  description={item.description}
-                />
-              );
-            })}
-          </Container>
-        </div>
-      )
-    : <div>Loading...</div>
     }
-		</div>
+    return (
+      <div>
+        {" "}
+        {this.state.loaded ? (
+          <div className="page">
+            <NavBar app="MarketPlace" />
+            <Container>
+              {this.state.dataBase.map((item, index) => {
+                return (
+                  <MarketplaceAppCard
+                    key={item + index}
+                    name={item.name}
+                    description={item.description}
+                  />
+                );
+              })}
+            </Container>
+          </div>
+        ) : (
+          <div>Loading...</div>
+        )}
+      </div>
+    );
   }
 }
 

@@ -10,9 +10,11 @@ import MarketPlace from "./routes/marketPlace";
 import Settings from "./routes/settings";
 import InfoPage from "./routes/infoPage";
 import DevTools from "./routes/devTools";
+import { server } from "./conf";
 
 class App extends React.Component {
 	render() {
+		console.log(server());
 		return <div>
 			<Router>
 				<Switch>

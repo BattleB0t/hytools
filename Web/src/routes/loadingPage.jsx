@@ -1,16 +1,21 @@
-import './../css/loadingPage.css';
-import React from 'react';
-import image from "./../assets/hypixelToolsx320.png"
-import { server } from '../conf';
+import "./../css/loadingPage.css";
+import React from "react";
+import image from "./../assets/hypixelToolsx320.png";
+import { server } from "../conf";
 
 class LoadingPage extends React.Component {
   render() {
-    this.checkIfLoaded()
+    this.checkIfLoaded();
     return (
       <React.StrictMode>
         <div className="loadingPage">
           <header className="loadingPage-header">
-            <img src={image} style={{ marginBottom: "3em" }} className="loadingPage-logo" alt="logo" />
+            <img
+              src={image}
+              style={{ marginBottom: "3em" }}
+              className="loadingPage-logo"
+              alt="logo"
+            />
             <div className="loader">
               <div></div>
             </div>
@@ -21,18 +26,20 @@ class LoadingPage extends React.Component {
   }
   checkIfLoaded() {
     this.intervalTimer = setInterval(() => {
-      fetch(`${server}/status`)
-        .catch(err => {
+      fetch(`${server()}/status`)
+        .catch((err) => {
           console.log(`Server Was Not Online`);
         })
-        .then(res => res.text())
-        .then(data => {
-          if (data === '{"status":"success","message":"Server is up and running"}') {
+        .then((res) => res.text())
+        .then((data) => {
+          if (
+            data === '{"status":"success","message":"Server is up and running"}'
+          ) {
             clearInterval(this.intervalTimer);
             window.location.href = "/home";
           }
-        })
-    }, 1000)
+        });
+    }, 1000);
   }
 }
 

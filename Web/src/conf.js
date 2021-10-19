@@ -1,1 +1,8 @@
-export const server = process.env.MODE === 'production' ? 'https://hytools.ewsgit.repl.co' : 'http://localhost:3001';
+export const server = () => {
+	if (process.env.NODE_ENV === 'production') {
+		return 'https://hytools.ewsgit.repl.co'
+	} else {
+		return 'http://localhost:3001';
+	}
+}
+	

@@ -106,7 +106,7 @@ class NavBar extends React.Component {
   render() {
     return (
       <Nav>
-        <img src={img} alt="navImage" />
+        {this.props.app !== "Home" ? <img src={img} alt="navImage" /> : null}
         <div>
           {this.props.app !== "Home" ? <Link to="/home">Home</Link> : null}
         </div>

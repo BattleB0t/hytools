@@ -14,9 +14,6 @@ class LoadingPage extends React.Component {
             <div className="loader">
               <div></div>
             </div>
-            <p>
-              HyTools
-            </p>
           </header>
         </div>
       </React.StrictMode>

@@ -1,6 +1,6 @@
 import "./../css/loadingPage.css";
 import React from "react";
-import image from "./../assets/hypixelToolsx320.png";
+import image from "./../assets/hypixelToolsx320HD.png";
 import { server } from "../conf";
 
 class LoadingPage extends React.Component {

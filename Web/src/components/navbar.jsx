@@ -1,5 +1,5 @@
 import React from "react";
-import img from "./../assets/favicon.png";
+import img from "./../assets/hypixelToolsx320HD.png";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { Link } from "react-router-dom";
 import styled from "styled-components";

@@ -100,13 +100,21 @@ const Nav = styled.nav`
     -ms-transform: translate(-50%, 0);
     -o-transform: translate(-50%, 0);
   }
+
+  @media (max-width: 768px) {
+    > h2 {
+      display: none;
+    }
+  }
 `;
 
 class NavBar extends React.Component {
   render() {
     return (
       <Nav>
-        {this.props.app !== "Home" ? <img src={img} alt="navImage" /> : null}
+        {this.props.app !== "Home" ? (
+          <img src={img} alt="navImage" />
+        ) : null}
         <div>
           {this.props.app !== "Home" ? <Link to="/home">Home</Link> : null}
         </div>
@@ -119,6 +127,14 @@ class NavBar extends React.Component {
             <Link to="/settings">
               <i className="bi bi-gear reload"></i>
             </Link>
+            {window.localStorage.getItem("developer_mode") === "true" ? (
+              <Link to="/dev">
+                <i className="bi bi-code-slash"></i>
+              </Link>
+            ) : null}
+          </RightButtons>
+        ) : window.localStorage.getItem("dev") === "true" ? (
+          <RightButtons>
             <Link to="/dev">
               <i className="bi bi-code-slash"></i>
             </Link>

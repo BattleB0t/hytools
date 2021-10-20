@@ -1,3 +1,6 @@
 {
-	"name":"hytools_src"
+	"name": "hytools_src",
+	"dependencies": {
+		"canvas": "^2.8.0"
+	}
 }

@@ -8,15 +8,26 @@ const Banner = styled.div`
   padding: 1em;
   display: flex;
   align-items: center;
+  height: 15vh;
+
+  > img {
+    height: 100%;
+  }
 
   @media (max-width: 768px) {
-    flex-direction: column;
+    height: 5vh;
+    overflow: hidden;
+    margin-top: 1em;
   }
 `;
 
 const BannerTitle = styled.h1`
-  margin-left: 0.5em;
   font-size: 4em;
+
+  @media (max-width: 768px) {
+    font-size: 2em;
+    margin-left: 0.25em;
+  }
 `;
 
 const Grid = styled.div`
@@ -84,7 +95,7 @@ class HomePage extends React.Component {
         <div className="page">
           <Banner>
             <img src={bannerLogo} alt="BannerLogo" />
-            <BannerTitle>HyTools</BannerTitle>
+            <BannerTitle> - HyTools</BannerTitle>
           </Banner>
           <Grid>
             {cards.map((card) => (

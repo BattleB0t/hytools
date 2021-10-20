@@ -1,10 +1,13 @@
 .loadingPage {
   text-align: center;
+  max-height: 100vh;
 }
 
 .loadingPage-logo {
-  height: 40vmin;
-  pointer-events: none;
+  height: 40vh;
+  pointer-events: none; 
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 .loadingPage-header {
@@ -16,6 +19,11 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.loadingPage-header > h2 {
+  margin-top: 0;
+  padding-top: 0;
 }
 
 .loadingPage-link {

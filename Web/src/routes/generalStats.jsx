@@ -1,10 +1,122 @@
 import React from "react";
 import Navbar from "../components/navbar";
-import "./../css/loadingPage.css";
-import "./../css/generalStats.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { server } from "../conf";
 import GeneralStatCard from "../components/generalStatCard";
+import styled from "styled-components";
+
+const SelectUser = styled.div`
+  > input {
+    width: 75vw;
+    height: 2em;
+    border: none;
+    outline: none;
+    background-color: #00000050;
+    color: white;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1em;
+    border-radius: 0.5em;
+    -webkit-border-radius: 0.5em;
+    -moz-border-radius: 0.5em;
+    -ms-border-radius: 0.5em;
+    -o-border-radius: 0.5em;
+  }
+
+  > * {
+    margin: 0;
+    padding: 1em;
+  }
+
+  > div {
+    margin-bottom: 1em;
+    border-radius: 0.5em;
+    padding: 0 2em;
+    color: white;
+    cursor: pointer;
+  }
+
+  > h1 {
+    margin: 0;
+  }
+
+    width: calc(85vw + 2em);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #00000050;
+    margin: 0;
+    padding: 0;
+    border-radius: 0.5em;
+    -webkit-border-radius: 0.5em;
+    -moz-border-radius: 0.5em;
+    -ms-border-radius: 0.5em;
+    -o-border-radius: 0.5em;
+`;
+
+const GeneralStatsPage = styled.div`
+  > div:first-child {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 1em;
+
+  h1 {
+    color: white;
+  }
+
+  > .title > h1 {
+    text-align: center;
+    margin-left: 1em;
+  }
+
+  >.stat {
+    color: white;
+  }
+
+  >.reload {
+    color: white;
+    font-size: 3em;
+    cursor: pointer;
+  }
+`;
+
+const Cards = styled.div`
+   {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 0.5em;
+    margin: 1em;
+    margin-bottom: 0;
+    padding-bottom: 1em;
+  }
+
+  > * {
+    background-color: #00000050;
+    height: 7.5em;
+    padding: 1em;
+    border-radius: 1em;
+    -webkit-border-radius: 1em;
+    -moz-border-radius: 1em;
+    -ms-border-radius: 1em;
+    -o-border-radius: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  > * >.value {
+    color: #bbbbbb;
+  }
+`;
 
 class GeneralStats extends React.Component {
   constructor(props) {
@@ -53,8 +165,8 @@ class GeneralStats extends React.Component {
       return (
         <div>
           <Navbar app="General Stats" />
-          <div className="generalStatsPage page">
-            <div className="generalStatsSelectUser">
+          <GeneralStatsPage className="page">
+            <SelectUser>
               <h1>{this.state.validUsername}</h1>
               <input
                 type="text"
@@ -72,15 +184,15 @@ class GeneralStats extends React.Component {
               >
                 <p>Submit</p>
               </div>
-            </div>
-          </div>
+            </SelectUser>
+          </GeneralStatsPage>
         </div>
       );
     } else {
       return (
         <div>
           <Navbar app="General Stats" />
-          <div className="generalStatsPage page">
+          <GeneralStatsPage className="page">
             <div className="title">
               <i
                 className="bi bi-arrow-clockwise reload"
@@ -93,7 +205,7 @@ class GeneralStats extends React.Component {
               ></i>
               <h1>General Stats For {this.state.username}</h1>
             </div>
-            <div className="cards">
+            <Cards>
               <GeneralStatCard
                 name="Network Level"
                 value={this.state.networkLevel}
@@ -110,8 +222,8 @@ class GeneralStats extends React.Component {
                 name="Bedwars Level"
                 value={this.state.bedwarsLevel}
               />
-            </div>
-          </div>
+            </Cards>
+          </GeneralStatsPage>
         </div>
       );
     }

@@ -8,6 +8,10 @@ body {
   background-color: #363d4d;
 }
 
+h1 {
+  color: white;
+}
+
 .page {
   padding-top: 5em;
   background-color: #363d4d;

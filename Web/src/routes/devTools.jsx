@@ -1,14 +1,30 @@
 import React from "react";
 import styled from "styled-components";
+import Navbar from "../components/navbar";
 
 const Tool = styled.div`
 	height: 100%;
 `
 
+const Page = styled.div`
+	margin-top: 5em;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	color: #fff;
+`
+
 const SelectBtn = styled.div`
-	width: 100%;
 	height: 2em;
 	background-color: #00000050;
+	padding: 0.5em;
+	border-radius: 0.5em;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	cursor: pointer;
 `
 
 class DevTools extends React.Component {
@@ -20,7 +36,8 @@ class DevTools extends React.Component {
 	}
 	render() { 
 		return <div>
-			<h1>DevTools</h1>
+			<Navbar app="Developer Tools" />
+			<Page>
 			<Tool>
 				{this.state.tool === "select" ? <div>
 					<h2>Select A Tool.</h2>
@@ -38,6 +55,7 @@ class DevTools extends React.Component {
 					}}>Load</button>
 				</div> : null}
 			</Tool>
+					</Page>
 		</div>;
 	}
 }

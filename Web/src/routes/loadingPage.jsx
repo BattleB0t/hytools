@@ -4,6 +4,12 @@ import image from "./../assets/hypixelToolsx320.png";
 import { server } from "../conf";
 
 class LoadingPage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      serverStatus: "",
+    }
+  }
   render() {
     this.checkIfLoaded();
     return (
@@ -16,6 +22,7 @@ class LoadingPage extends React.Component {
               className="loadingPage-logo"
               alt="logo"
             />
+            <h2>{this.state.serverStatus}</h2>
             <div className="loader">
               <div></div>
             </div>
@@ -30,13 +37,28 @@ class LoadingPage extends React.Component {
         .catch((err) => {
           console.log(`Server Was Not Online`);
         })
-        .then((res) => res.text())
+        .then((res) => {
+          if (res !== undefined || null) {
+            return res.text()
+          } else {
+            return "server offline"
+          }
+        })
         .then((data) => {
           if (
             data === '{"status":"success","message":"Server is up and running"}'
           ) {
             clearInterval(this.intervalTimer);
-            window.location.href = "/home";
+            this.setState({
+              serverStatus: "",
+            });
+            setTimeout(() => {
+              window.location.href = "/home";
+            }, 500);
+          } else if (data === "server offline") {
+            this.setState({
+              serverStatus: "Server Is Not Responding",
+            })
           }
         });
     }, 1000);

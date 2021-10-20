@@ -1,7 +1,5 @@
 import React from "react";
 import Navbar from "../components/navbar";
-import "./../css/loadingPage.css";
-import "./../css/generalStats.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { server } from "../conf";
 import GeneralStatCard from "../components/generalStatCard";

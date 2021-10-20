@@ -1,7 +1,7 @@
 import React from "react";
 import NavBar from "../components/navbar";
 import { Link } from "react-router-dom";
-import bannerLogo from "./../assets/hypixelToolsx320.png";
+import bannerLogo from "./../assets/hypixelToolsx320HD.png";
 import styled from "styled-components";
 
 const Banner = styled.div`

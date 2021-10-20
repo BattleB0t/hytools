@@ -7,7 +7,7 @@ import styled from "styled-components";
 
 const SelectUser = styled.div`
   > input {
-    width: 75vw;
+    width: calc(100% - 4em);
     height: 2em;
     border: none;
     outline: none;
@@ -22,6 +22,24 @@ const SelectUser = styled.div`
     -moz-border-radius: 0.5em;
     -ms-border-radius: 0.5em;
     -o-border-radius: 0.5em;
+    transition: background-color 0.2s ease-in-out;
+  }
+
+  > input:hover,
+  > input:focus,
+  > input:active {
+    background-color: #00000080;
+  }
+
+  > .submitBtn {
+    background-color: #00000050;
+    transition: background-color 0.2s ease-in-out;
+  }
+
+  > .submitBtn:hover,
+  > .submitBtn:focus,
+  > .submitBtn:active {
+    background-color: #00000080;
   }
 
   > * {
@@ -39,21 +57,24 @@ const SelectUser = styled.div`
 
   > h1 {
     margin: 0;
+    text-align: center;
   }
 
-    width: calc(85vw + 2em);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    background-color: #00000050;
-    margin: 0;
-    padding: 0;
-    border-radius: 0.5em;
-    -webkit-border-radius: 0.5em;
-    -moz-border-radius: 0.5em;
-    -ms-border-radius: 0.5em;
-    -o-border-radius: 0.5em;
+  min-width: 80vw;
+  max-width: calc(100vw - 2em);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #00000050;
+  margin: 0;
+  padding: 0;
+  border-radius: 0.5em;
+  -webkit-border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
+  -ms-border-radius: 0.5em;
+  -o-border-radius: 0.5em;
+  margin-top: 1em;
 `;
 
 const GeneralStatsPage = styled.div`
@@ -66,7 +87,6 @@ const GeneralStatsPage = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin-top: 1em;
 
   h1 {
     color: white;
@@ -77,11 +97,11 @@ const GeneralStatsPage = styled.div`
     margin-left: 1em;
   }
 
-  >.stat {
+  > .stat {
     color: white;
   }
 
-  >.reload {
+  > .reload {
     color: white;
     font-size: 3em;
     cursor: pointer;
@@ -89,14 +109,12 @@ const GeneralStatsPage = styled.div`
 `;
 
 const Cards = styled.div`
-   {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 0.5em;
-    margin: 1em;
-    margin-bottom: 0;
-    padding-bottom: 1em;
-  }
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 0.5em;
+  margin: 1em;
+  margin-bottom: 0;
+  padding-bottom: 1em;
 
   > * {
     background-color: #00000050;
@@ -113,7 +131,7 @@ const Cards = styled.div`
     flex-direction: column;
   }
 
-  > * >.value {
+  > * > .value {
     color: #bbbbbb;
   }
 `;

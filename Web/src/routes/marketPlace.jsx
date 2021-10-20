@@ -52,7 +52,6 @@ class MarketPlace extends React.Component {
     }
     return (
       <div>
-        {" "}
         {this.state.loaded ? (
           <div className="page">
             <NavBar app="MarketPlace" />

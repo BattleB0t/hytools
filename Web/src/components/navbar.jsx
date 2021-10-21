@@ -132,6 +132,11 @@ class NavBar extends React.Component {
                 <i className="bi bi-code-slash"></i>
               </Link>
             ) : null}
+            {window.localStorage.getItem("display_discord") === (null || "true") ? (
+            <a href="https://discord.gg/J9RAMdYpcy">
+                <i className="bi bi-discord"></i>
+              </a>
+            ) : null}
           </RightButtons>
         ) : window.localStorage.getItem("dev") === "true" ? (
           <RightButtons>

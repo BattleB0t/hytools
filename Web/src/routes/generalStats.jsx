@@ -116,7 +116,7 @@ const GeneralStatsPage = styled.div`
 
 const Cards = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   gap: 0.5em;
   margin: 1em;
   margin-bottom: 0;
@@ -139,6 +139,14 @@ const Cards = styled.div`
 
   > * > .value {
     color: #bbbbbb;
+  }
+
+  @media (max-width: 1920px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
+
+  @media (max-width: 1524px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 
   @media (max-width: 1024px) {
@@ -171,6 +179,12 @@ class GeneralStats extends React.Component {
         fetch(`${server()}/player?uuid=${playerid.uuid}`)
           .then((res) => res.json())
           .then((player) => {
+            if (!player.player) {
+              this.setState({
+                validUsername: "Player Not Found",
+              });
+              return
+            }
             var RecentGameFunc = () => {
               if (player.player.mostRecentGameType) {
                 return player.player.mostRecentGameType;
@@ -182,12 +196,14 @@ class GeneralStats extends React.Component {
             RecentGame = RecentGameFunc().replace("_", " ").toLowerCase();
             RecentGame =
               RecentGame.charAt(0).toUpperCase() + RecentGame.slice(1);
+            var firstLogin = new Date(player.player.firstLogin)
             this.setState({
               networkLevel: this.getNetworkLevel(player.player.networkExp),
-              recentGame: RecentGame,
-              formattedPlayerName: player.player.displayname,
-              bedwarsLevel: player.player.achievements.bedwars_level,
+              recentGame: RecentGame ? RecentGame : "No Games Played",
+              formattedPlayerName: player.player.displayname ? player.player.displayname : "No Username?",
+              bedwarsLevel: player.player.achievements.bedwars_level ? player.player.achievements.bedwars_level : "0",
               skywarsLevel: player.player.stats.SkyWars !== undefined ? this.getSkywarsLevel(player.player.stats.SkyWars.skywars_experience) : "0",
+              firstLogin: player.player.firstLogin ? `${firstLogin.getDay()} / ${firstLogin.getMonth()} / ${firstLogin.getFullYear()}` : "Not Logged In",
             });
           });
       });
@@ -199,7 +215,7 @@ class GeneralStats extends React.Component {
     } else {
       for (let i = 0; i < exps.length; i++) {
         if (exp < exps[ i ]) {
-          return 1 + i + (exp - exps[ i - 1 ]) / (exps[ i ] - exps[ i - 1 ])
+          return 1 + i + (exp - exps[ i - 1 ]) / (exps[ i ] - exps[ i - 1 ]).toFixed(0)
         }
       }
     }
@@ -288,6 +304,10 @@ class GeneralStats extends React.Component {
               <GeneralStatCard
                 name="Skywars Level"
                 value={this.state.skywarsLevel}
+              />
+              <GeneralStatCard
+                name="Join Date"
+                value={this.state.firstLogin}
               />
             </Cards>
           </GeneralStatsPage>

@@ -42,6 +42,10 @@ var cards = [
   {
     title: "Developer Mode",
     value: "developer_mode",
+  },
+  {
+    title: "Display Discord Server",
+    value: "display_discord",
   }
 ];
 
@@ -71,6 +75,17 @@ class Settings extends React.Component {
               </h2>
             </div>
           ))}
+          <div onClick={
+            (e) => {
+              localStorage.clear();
+              window.location.reload();
+            }
+          }>
+            <h1>Clear Data</h1>
+            <h2>
+              {localStorage.length === 0 ? "(No Data Saved)" : "(Save Data Was Found)"}
+            </h2>
+          </div>
         </Grid>
       </div>
     );

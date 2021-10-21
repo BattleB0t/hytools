@@ -5,20 +5,6 @@ import { server } from "../conf";
 import GeneralStatCard from "../components/generalStatCard";
 import styled from "styled-components";
 
-const ReloadDiv = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 0.5em;
-  background-color: #00000050;
-  padding: 0em 1em;
-
-  > h2 {
-    color: #fff;
-    padding-left: 0.25em;
-  }
-`;
-
 const ReloadBtn = styled.i`
   font-size: 3em;
   color: white;
@@ -154,6 +140,18 @@ const Cards = styled.div`
   > * > .value {
     color: #bbbbbb;
   }
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 class GeneralStats extends React.Component {
@@ -189,9 +187,22 @@ class GeneralStats extends React.Component {
               recentGame: RecentGame,
               formattedPlayerName: player.player.displayname,
               bedwarsLevel: player.player.achievements.bedwars_level,
+              skywarsLevel: player.player.stats.SkyWars !== undefined ? this.getSkywarsLevel(player.player.stats.SkyWars.skywars_experience) : "0",
             });
           });
       });
+  }
+  getSkywarsLevel(exp) {
+    var exps = [ 0, 20, 70, 150, 250, 500, 1000, 2000, 3500, 6000, 10000, 15000 ]
+    if (exp >= 15000) {
+      return (exp - 15000) / 10000 + 12
+    } else {
+      for (let i = 0; i < exps.length; i++) {
+        if (exp < exps[ i ]) {
+          return 1 + i + (exp - exps[ i - 1 ]) / (exps[ i ] - exps[ i - 1 ])
+        }
+      }
+    }
   }
   getNetworkLevel(exp) {
     var BASE = 10000;
@@ -202,10 +213,10 @@ class GeneralStats extends React.Component {
     return exp <= 1
       ? 1
       : Math.floor(
-          1 +
-            REVERSE_PQ_PREFIX +
-            Math.sqrt(REVERSE_CONST + GROWTH_DIVIDES_2 * exp)
-        );
+        1 +
+        REVERSE_PQ_PREFIX +
+        Math.sqrt(REVERSE_CONST + GROWTH_DIVIDES_2 * exp)
+      );
   }
   render() {
     if (!this.state.selectedUser) {
@@ -221,6 +232,11 @@ class GeneralStats extends React.Component {
                   this.setState({
                     username: e.target.value,
                   });
+                }}
+                onKeyPress={(e) => {
+                  if (e.key === "Enter") {
+                    this.setUsername();
+                  }
                 }}
               />
               <div
@@ -241,18 +257,15 @@ class GeneralStats extends React.Component {
           <Navbar app="General Stats" />
           <GeneralStatsPage className="page">
             <div className="title">
-              <ReloadDiv>
-                <ReloadBtn
-                  className="bi bi-arrow-clockwise"
-                  onClick={(e) => {
-                    this.setState({
-                      selectedUser: false,
-                      validUsername: "Please Enter A Player Username",
-                    });
-                  }}
-                ></ReloadBtn>
-                <h2>Go Back</h2>
-              </ReloadDiv>
+              <ReloadBtn
+                className="bi bi-arrow-clockwise"
+                onClick={(e) => {
+                  this.setState({
+                    selectedUser: false,
+                    validUsername: "Please Enter A Player Username",
+                  });
+                }}
+              ></ReloadBtn>
               <h1>General Stats For {this.state.username}</h1>
             </div>
             <Cards>
@@ -265,12 +278,16 @@ class GeneralStats extends React.Component {
                 value={this.state.recentGame}
               />
               <GeneralStatCard
-                name="Formatted Player Name"
+                name="Formatted Name"
                 value={this.state.formattedPlayerName}
               />
               <GeneralStatCard
                 name="Bedwars Level"
                 value={this.state.bedwarsLevel}
+              />
+              <GeneralStatCard
+                name="Skywars Level"
+                value={this.state.skywarsLevel}
               />
             </Cards>
           </GeneralStatsPage>

@@ -55,11 +55,11 @@ class Settings extends React.Component {
             <div
               onClick={(e) => {
                 if (
-                  localStorage.getItem(card.value) === (null || undefined || "" || "false")
+                  localStorage.getItem(card.value) === "true"
                 ) {
-                  localStorage.setItem(card.value, "true");
-                } else {
                   localStorage.setItem(card.value, "false");
+                } else {
+                  localStorage.setItem(card.value, "true");
                 }
                 window.location.reload();
               }}

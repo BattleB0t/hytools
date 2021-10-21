@@ -5,6 +5,26 @@ import { server } from "../conf";
 import GeneralStatCard from "../components/generalStatCard";
 import styled from "styled-components";
 
+const ReloadDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5em;
+  background-color: #00000050;
+  padding: 0em 1em;
+
+  > h2 {
+    color: #fff;
+    padding-left: 0.25em;
+  }
+`;
+
+const ReloadBtn = styled.i`
+  font-size: 3em;
+  color: white;
+  cursor: pointer;
+`;
+
 const SelectUser = styled.div`
   > input {
     width: calc(100% - 4em);
@@ -153,11 +173,20 @@ class GeneralStats extends React.Component {
         fetch(`${server()}/player?uuid=${playerid.uuid}`)
           .then((res) => res.json())
           .then((player) => {
+            var RecentGameFunc = () => {
+              if (player.player.mostRecentGameType) {
+                return player.player.mostRecentGameType;
+              } else {
+                return "No Games Played";
+              }
+            };
+            var RecentGame = "";
+            RecentGame = RecentGameFunc().replace("_", " ").toLowerCase();
+            RecentGame =
+              RecentGame.charAt(0).toUpperCase() + RecentGame.slice(1);
             this.setState({
               networkLevel: this.getNetworkLevel(player.player.networkExp),
-              recentGame: player.player.mostRecentGameType
-                ? player.player.mostRecentGameType
-                : "No Recent Games",
+              recentGame: RecentGame,
               formattedPlayerName: player.player.displayname,
               bedwarsLevel: player.player.achievements.bedwars_level,
             });
@@ -212,15 +241,18 @@ class GeneralStats extends React.Component {
           <Navbar app="General Stats" />
           <GeneralStatsPage className="page">
             <div className="title">
-              <i
-                className="bi bi-arrow-clockwise reload"
-                onClick={(e) => {
-                  this.setState({
-                    selectedUser: false,
-                    validUsername: "Please Enter A Player Username",
-                  });
-                }}
-              ></i>
+              <ReloadDiv>
+                <ReloadBtn
+                  className="bi bi-arrow-clockwise"
+                  onClick={(e) => {
+                    this.setState({
+                      selectedUser: false,
+                      validUsername: "Please Enter A Player Username",
+                    });
+                  }}
+                ></ReloadBtn>
+                <h2>Go Back</h2>
+              </ReloadDiv>
               <h1>General Stats For {this.state.username}</h1>
             </div>
             <Cards>

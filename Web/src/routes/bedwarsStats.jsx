@@ -1,137 +1,61 @@
-import React from "react";
-import Navbar from "../components/navbar";
-import "bootstrap-icons/font/bootstrap-icons.css";
-import { server } from "../conf";
-import GeneralStatCard from "../components/generalStatCard";
+import React from 'react';
+import "bootstrap-icons/font/bootstrap-icons.css"
+import NavBar from '../components/navbar';
+import styled from 'styled-components';
 
-class GeneralStats extends React.Component {
-  constructor(props) {
-    super(props);
-    this.loadingText = "Loading...";
-    this.state = {
-      validUsername: "Please Enter A Player Username",
-      selectedUser: false,
-      username: "",
-    };
+const Page = styled.div`
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 7em);
+  padding-top: 5em;
+
+  > .selectUser {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #00000050;
+    padding: 2em;
+    border-radius: 1em;
   }
-  loadData() {
-    fetch(`${server()}/uuid?username=${this.state.username}`)
-      .then((res) => res.json())
-      .then((playerid) => {
-        if (playerid.status === "error") {
-          this.setState({
-            username: "Unknown User!",
-          });
-          return;
-        }
-        fetch(`${server()}/player?uuid=${playerid.uuid}`)
-          .then((res) => res.json())
-          .then((player) => {
-            this.setState({
-              networkLevel: this.getNetworkLevel(player.player.networkExp),
-              recentGame: player.player.mostRecentGameType
-                ? player.player.mostRecentGameType
-                : "No Recent Games",
-              formattedPlayerName: player.player.displayname,
-              bedwarsLevel: player.player.achievements.bedwars_level,
-            });
-          });
-      });
-  }
-  getNetworkLevel(exp) {
-    var BASE = 10000;
-    var GROWTH = 2500;
-    var REVERSE_PQ_PREFIX = -(BASE - 0.5 * GROWTH) / GROWTH;
-    var REVERSE_CONST = REVERSE_PQ_PREFIX * REVERSE_PQ_PREFIX;
-    var GROWTH_DIVIDES_2 = 2 / GROWTH;
-    return exp <= 1
-      ? 1
-      : Math.floor(
-          1 +
-            REVERSE_PQ_PREFIX +
-            Math.sqrt(REVERSE_CONST + GROWTH_DIVIDES_2 * exp)
-        );
-  }
+`
+
+class BedwarsStats extends React.Component {
   render() {
-    if (!this.state.selectedUser) {
-      return (
-        <div>
-          <Navbar app="Bedwars Stats" />
-          <div className="generalStatsPage page">
-            <div className="generalStatsSelectUser">
-              <h1>{this.state.validUsername}</h1>
-              <input
-                type="text"
-                onChange={(e) => {
-                  this.setState({
-                    username: e.target.value,
-                  });
-                }}
-              />
-              <div
-                className="submitBtn"
-                onClick={(e) => {
-                  this.setUsername();
-                }}
-              >
-                <p>Submit</p>
-              </div>
-            </div>
+    var PreviousUsers = [
+      "loser",
+      "loser2",
+      "loser3",
+      "loser4",
+      "loser5",
+      "loser6",
+      "loser7",
+      "loser8",
+      "loser9",
+      "loser10",
+    ]
+    return <div>
+      <NavBar app="Bedwars Stats" />
+      <Page>
+        <div className="selectUser">
+          <h1>Select A User</h1>
+          <input type="text" />
+          <button>Select</button>
+          <div className="previousUsers">
+            {
+              PreviousUsers.map((user, index) => {
+                return <div key={index}>{user}</div>
+              })
+            }
           </div>
         </div>
-      );
-    } else {
-      return (
-        <div>
-          <Navbar app="Bedwars Stats" />
-          <div className="generalStatsPage page">
-            <div className="title">
-              <i
-                className="bi bi-arrow-clockwise reload"
-                onClick={(e) => {
-                  this.setState({
-                    selectedUser: false,
-                    validUsername: "Please Enter A Player Username",
-                  });
-                }}
-              ></i>
-              <h1>General Stats For {this.state.username}</h1>
-            </div>
-            <div className="cards">
-              <GeneralStatCard
-                name="Network Level"
-                value={this.state.networkLevel}
-              />
-              <GeneralStatCard
-                name="Recent Game"
-                value={this.state.recentGame}
-              />
-              <GeneralStatCard
-                name="Formatted Player Name"
-                value={this.state.formattedPlayerName}
-              />
-            </div>
-          </div>
-        </div>
-      );
-    }
-  }
-  setUsername() {
-    var e = this.state.username;
-    if (e !== "" || e !== null || e !== undefined) {
-      this.setState({
-        selectedUser: true,
-        username: this.state.username,
-      });
-      this.loadData();
-    } else {
-      this.setState({
-        validUsername: "Please Enter A Valid Username.",
-        username: "Unknown User",
-        selectedUser: true,
-      });
-    }
+      </Page>
+    </div>;
   }
 }
 
-export default GeneralStats;
+export default BedwarsStats;

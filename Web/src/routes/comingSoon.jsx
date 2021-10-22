@@ -7,7 +7,9 @@ const Page = styled.div`
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	min-height: 100vh;
+	height: 100vh;
+
+	margin: 0;
 
 	> h1 {
 		font-size: 5em;
@@ -21,7 +23,7 @@ const Button = styled.div`
 	justify-content: center;
 	background-color: #00000050;
 	padding: 1em 2em;
-	border-radius: 0.5em;
+	border-radius: 1em;
 	> a {
 		underline: none;
 		text-decoration: none;

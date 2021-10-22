@@ -204,6 +204,7 @@ class GeneralStats extends React.Component {
               bedwarsLevel: player.player.achievements.bedwars_level ? player.player.achievements.bedwars_level : "0",
               skywarsLevel: player.player.stats.SkyWars !== undefined ? this.getSkywarsLevel(player.player.stats.SkyWars.skywars_experience) : "0",
               firstLogin: player.player.firstLogin ? `${firstLogin.getDay()} / ${firstLogin.getMonth()} / ${firstLogin.getFullYear()}` : "Not Logged In",
+              socialMedia: player.player.socialMedia ? player.player.socialMedia : {},
             });
           });
       });

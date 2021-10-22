@@ -65,6 +65,49 @@ const Grid = styled.div`
 	}
 `;
 
+const CenteredText = styled.div`
+  text-align: center;
+  max-width: 700px;
+  margin: auto auto;
+
+  > div > a > div {
+    margin: 0 auto;
+    padding-top: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #00000050;
+    color: white;
+    border-radius: 1em;
+    padding: 1em;
+    width: max-content;
+    text-decoration: none;
+    cursor: pointer;
+    underline: none;
+    text-style: none;
+  }
+
+  > div > a {
+    text-decoration: none;
+    cursor: pointer;
+    underline: none;
+    text-style: none;
+  }
+
+  > div > a > div > i {
+    font-size: 2.5em;
+    color: #ffffff;
+    margin-right: 0.5em;
+  }
+
+  > div > a > div:hover,
+  > div > a > div:focus {
+  > div > a > div:active {
+    background-color: #00000080;
+  }
+`
+
 class HomePage extends React.Component {
   render() {
     var cards = [
@@ -80,14 +123,14 @@ class HomePage extends React.Component {
       // 	title: "Skyblock-Money",
       // 	url:"/skyblock/sbmoney"
       // }
-      {
-        title: "Skyblock Stats",
-        url: "/stats/skyblock",
-      },
-      {
-        title: "Skyblock Calculator",
-        url: "/calculator/skyblock",
-      },
+      // {
+      //   title: "Skyblock Stats",
+      //   url: "/stats/skyblock",
+      // },
+      // {
+      //   title: "Skyblock Calculator",
+      //   url: "/calculator/skyblock",
+      // },
     ];
     return (
       <div>
@@ -97,6 +140,17 @@ class HomePage extends React.Component {
             <img src={bannerLogo} alt="BannerLogo" />
             <BannerTitle> - HyTools</BannerTitle>
           </Banner>
+          <CenteredText>
+            {cards[ 0 ] === undefined ? <div>
+              <h1>It Appears That You Have No Applets Installed. You can install some in the marketplace.</h1>
+              <Link to="/marketplace">
+              <div>
+                <i className="bi bi-shop"></i>
+                <h2>Open</h2>
+              </div>
+              </Link>
+            </div> : null}
+          </CenteredText>
           <Grid>
             {cards.map((card) => (
               <Link to={card.url} key={card.title}>

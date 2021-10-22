@@ -34,7 +34,7 @@ class App extends React.Component {
             <Route
               path="/stats/bedwars"
               exact
-              component={() => <ComingSoon />}
+              component={() => <BedwarsStats />}
             />
             <Route
               path="/stats/skyblock"
